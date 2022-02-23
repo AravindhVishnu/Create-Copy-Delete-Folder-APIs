@@ -1,6 +1,10 @@
 # Create-Copy-Delete
 This repository contains Windows file system C++ APIs and an example console application.
 
-The implementation is based on std::wstring and WCHAR which are used to access and create files with unicode characters.
+Description: Includes APIs to create, delete, copy and move files and folders. Folders are copied, moved and deleted
+recursively. The implementation is based on std::wstring and WCHAR which are needed to access and create files with 
+all unicode characters.
 
-Tested only on Windows 10.
+Tools: Visual Studio 2022
+
+Note: Tested only on Windows 10
