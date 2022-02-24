@@ -2,6 +2,9 @@
 
 int main(int argc, char** argv)
 {
+    (void)argc;
+    (void)argv;
+    
     printf("**********************************************************************************\n");
     printf("   Create, copy and delete folders and files");
     printf("   Build time: %s %s\n", __DATE__, __TIME__);
