@@ -3,7 +3,7 @@ This repository contains Windows file system C++ APIs and an example console app
 
 Description: Includes APIs to:
 - Create, delete, copy and move files and folders. Folders are copied, moved and deleted recursively.
-- Get file size and folder size
+- Get file size and folder size. Folder size is retrieved recursively.
 - Write, append write and read file operation
 - Set and clear read only flag file operation
 
