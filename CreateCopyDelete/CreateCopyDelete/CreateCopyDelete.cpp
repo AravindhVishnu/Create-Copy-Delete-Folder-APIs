@@ -390,7 +390,7 @@ bool CreateCopyDelete::getFileSize(const WCHAR* path, uint32_t* fileSize) const
 	*fileSize = 0;
 	if (this->fileExists(path) == true)
 	{
-		HANDLE handle = CreateFile(
+		HANDLE handle = ::CreateFile(
 			path, 
 			GENERIC_READ,
 			0, 
@@ -484,7 +484,7 @@ uint32_t CreateCopyDelete::fileWrite(const WCHAR* path, const WCHAR* str) const
 	DWORD bytesWritten = 0;
 	if (this->fileExists(path) == true)
 	{
-		HANDLE handle = CreateFile(
+		HANDLE handle = ::CreateFile(
 			path,
 			GENERIC_WRITE,
 			0,
@@ -524,7 +524,7 @@ uint32_t CreateCopyDelete::fileAppendWrite(const WCHAR* path, const WCHAR* str) 
 	DWORD bytesWritten = 0;
 	if (this->fileExists(path) == true)
 	{
-		HANDLE handle = CreateFile(
+		HANDLE handle = ::CreateFile(
 			path,
 			FILE_APPEND_DATA,
 			0,
