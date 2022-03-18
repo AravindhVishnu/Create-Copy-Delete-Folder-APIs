@@ -357,32 +357,32 @@ bool CreateCopyDelete::moveFile(const WCHAR* fromDir, const WCHAR* toDir, const 
 
 bool CreateCopyDelete::isReadOnly(const WCHAR* path) const
 {
-  DWORD attributes = ::GetFileAttributes(path);
-  if(attributes != INVALID_FILE_ATTRIBUTES)
-  {
-    if((attributes & FILE_ATTRIBUTE_READONLY) != 0)
-	{
-      return true;
-	}
-  }
-  return false;
+	DWORD attributes = ::GetFileAttributes(path);
+  	if(attributes != INVALID_FILE_ATTRIBUTES)
+  	{
+    	if((attributes & FILE_ATTRIBUTE_READONLY) != 0)
+		{
+			return true;
+		}
+  	}
+  	return false;
 }
 
 void CreateCopyDelete::setReadOnly(const WCHAR* path, bool value) const
 {
-  DWORD attributes = ::GetFileAttributes(path);
-  if(attributes != INVALID_FILE_ATTRIBUTES)
-  {
-    if(value == true)
-	{
-      attributes = attributes | FILE_ATTRIBUTE_READONLY;
-	}
-    else
-	{
-      attributes = attributes & ~FILE_ATTRIBUTE_READONLY;
-	}
-    ::SetFileAttributes(path, attributes);
-  }
+  	DWORD attributes = ::GetFileAttributes(path);
+  	if(attributes != INVALID_FILE_ATTRIBUTES)
+  	{
+    	if(value == true)
+		{
+      		attributes = attributes | FILE_ATTRIBUTE_READONLY;
+		}
+    	else
+		{
+      		attributes = attributes & ~FILE_ATTRIBUTE_READONLY;
+		}
+    	::SetFileAttributes(path, attributes);
+  	}
 }
 
 bool CreateCopyDelete::getFileSize(const WCHAR* path, uint32_t* fileSize) const
