@@ -358,31 +358,31 @@ bool CreateCopyDelete::moveFile(const WCHAR* fromDir, const WCHAR* toDir, const 
 bool CreateCopyDelete::isReadOnly(const WCHAR* path) const
 {
 	DWORD attributes = ::GetFileAttributes(path);
-  	if(attributes != INVALID_FILE_ATTRIBUTES)
-  	{
-    	if((attributes & FILE_ATTRIBUTE_READONLY) != 0)
+	if (attributes != INVALID_FILE_ATTRIBUTES)
+	{
+		if ((attributes & FILE_ATTRIBUTE_READONLY) != 0)
 		{
 			return true;
 		}
-  	}
-  	return false;
+	}
+	return false;
 }
 
 void CreateCopyDelete::setReadOnly(const WCHAR* path, bool value) const
 {
-  	DWORD attributes = ::GetFileAttributes(path);
-  	if(attributes != INVALID_FILE_ATTRIBUTES)
-  	{
-    	if(value == true)
+	DWORD attributes = ::GetFileAttributes(path);
+	if (attributes != INVALID_FILE_ATTRIBUTES)
+	{
+		if (value == true)
 		{
-      		attributes = attributes | FILE_ATTRIBUTE_READONLY;
+			attributes = attributes | FILE_ATTRIBUTE_READONLY;
 		}
-    	else
+		else
 		{
-      		attributes = attributes & ~FILE_ATTRIBUTE_READONLY;
+			attributes = attributes & ~FILE_ATTRIBUTE_READONLY;
 		}
-    	::SetFileAttributes(path, attributes);
-  	}
+		::SetFileAttributes(path, attributes);
+	}
 }
 
 bool CreateCopyDelete::getFileSize(const WCHAR* path, uint32_t* fileSize) const
@@ -390,13 +390,13 @@ bool CreateCopyDelete::getFileSize(const WCHAR* path, uint32_t* fileSize) const
 	*fileSize = 0;
 	if (this->fileExists(path) == true)
 	{
-		HANDLE handle = ::CreateFile(
-			path, 
+		HANDLE handle = CreateFile(
+			path,
 			GENERIC_READ,
-			0, 
-			NULL, 
+			0,
+			NULL,
 			OPEN_EXISTING,
-			FILE_ATTRIBUTE_NORMAL, 
+			FILE_ATTRIBUTE_NORMAL,
 			NULL);
 
 		if (handle == INVALID_HANDLE_VALUE)
@@ -484,7 +484,7 @@ uint32_t CreateCopyDelete::fileWrite(const WCHAR* path, const WCHAR* str) const
 	DWORD bytesWritten = 0;
 	if (this->fileExists(path) == true)
 	{
-		HANDLE handle = ::CreateFile(
+		HANDLE handle = CreateFile(
 			path,
 			GENERIC_WRITE,
 			0,
@@ -524,7 +524,7 @@ uint32_t CreateCopyDelete::fileAppendWrite(const WCHAR* path, const WCHAR* str) 
 	DWORD bytesWritten = 0;
 	if (this->fileExists(path) == true)
 	{
-		HANDLE handle = ::CreateFile(
+		HANDLE handle = CreateFile(
 			path,
 			FILE_APPEND_DATA,
 			0,
