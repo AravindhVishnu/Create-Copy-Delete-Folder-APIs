@@ -7,6 +7,8 @@ Description: Includes APIs to:
 - Set and clear read only flag on folders and files. Setting read only flag on a folder is done recursively.
 - Get list of all file paths in a folder. This operation is done recursively.
 - Write, append write and read file operation.
+- Print all file paths and subfolder paths in a folder.
+- Get file time info.
 
 The implementation is based on std::wstring and WCHAR which are needed to access and create files with 
 unicode characters.
