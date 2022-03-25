@@ -9,6 +9,7 @@ Description: Includes APIs to:
 - Write, append write and read file operation.
 - Print all file paths and subfolder paths in a folder.
 - Print file time info.
+- Get drive space and drive type info
 
 The implementation is based on std::wstring and WCHAR which are needed to access and create files with 
 unicode characters.
