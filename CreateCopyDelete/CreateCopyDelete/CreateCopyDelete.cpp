@@ -32,7 +32,6 @@ bool CreateCopyDelete::directoryExists(const WCHAR* path) const
 bool CreateCopyDelete::createDir(const WCHAR* dir) const
 {
 	std::wstring newDir = dir;
-
 	if (this->directoryExists(dir) == true)
 	{
 		::printf("Error: Directory '%S' already exists\n", newDir.c_str());
@@ -41,13 +40,11 @@ bool CreateCopyDelete::createDir(const WCHAR* dir) const
 	else
 	{
 		::printf("Creating directory '%S'\n", newDir.c_str());
-
 		if (::CreateDirectory(newDir.c_str(), NULL) == 0)
 		{
 			::printf("Error: Failed to create: %S\n", newDir.c_str());
 			return false;
 		}
-
 		return true;
 	}
 }
@@ -64,7 +61,6 @@ bool CreateCopyDelete::copyDir(const WCHAR* fromDir, const WCHAR* toDir) const
 		::printf("Error: This directory already exists: %S\n", toDir);
 		return false;
 	}
-
 	std::wstring inDir = fromDir;
 	std::wstring outDir = toDir;
 	::printf("Copying directory from '%S' to '%S'\n", inDir.c_str(), outDir.c_str());
@@ -685,7 +681,7 @@ bool CreateCopyDelete::mergeFiles(const WCHAR* pathOne, const WCHAR* pathTwo, co
 	DWORD bytesRead = 0;
 	DWORD bytesWritten = 0;
 	DWORD pos = 0;
-	BYTE* fileOneBuff = (BYTE*)::malloc(1024 * 1024);
+	BYTE* fileOneBuff = (BYTE*)::malloc(4096);
 	while (::ReadFile(fileOne, fileOneBuff, sizeof(fileOneBuff), &bytesRead, NULL) && bytesRead > 0)
 	{
 		pos = ::SetFilePointer(fileMerge, 0, NULL, FILE_END);
@@ -696,7 +692,7 @@ bool CreateCopyDelete::mergeFiles(const WCHAR* pathOne, const WCHAR* pathTwo, co
 	bytesRead = 0;
 	bytesWritten = 0;
 	pos = 0;
-	BYTE* fileTwoBuff = (BYTE*)::malloc(1024 * 1024);
+	BYTE* fileTwoBuff = (BYTE*)::malloc(4096);
 	while (::ReadFile(fileTwo, fileTwoBuff, sizeof(fileTwoBuff), &bytesRead, NULL) && bytesRead > 0)
 	{
 		pos = ::SetFilePointer(fileMerge, 0, NULL, FILE_END);
