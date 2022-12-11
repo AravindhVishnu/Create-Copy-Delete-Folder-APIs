@@ -6,7 +6,7 @@ Description: Includes APIs to:
 - Get file size and folder size. Folder size is retrieved recursively.
 - Set and clear read only flag on folders and files. Setting read only flag on a folder is done recursively.
 - Get list of all file paths in a folder. This operation is done recursively.
-- Write, append write, read and merge file operation.
+- Write, append write, read and merge file operations.
 - Find text in a file.
 - Replace text in a file.
 - Print all file paths and subfolder paths in a folder.
