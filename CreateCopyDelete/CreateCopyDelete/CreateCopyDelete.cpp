@@ -1267,8 +1267,8 @@ bool CreateCopyDelete::zipAllFilesInFolder(const WCHAR* dir, const WCHAR* archiv
 	HZIP hz = ::CreateZip(archiveName, 0);
 
 	std::vector<std::wstring> paths;
-  paths.clear();
-  this->getDirFilePaths(dir, &paths);
+        paths.clear();
+        this->getDirFilePaths(dir, &paths);
 
 	for (std::vector<std::wstring>::iterator it = paths.begin(); it != paths.end(); ++it)
 	{
