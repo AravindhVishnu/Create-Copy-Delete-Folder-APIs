@@ -9,8 +9,8 @@ Description: Includes APIs to:
 - Write, append write, read and merge file operations.
 - Find text in a file.
 - Replace text in a file.
-- Show all file paths and subfolder paths in a folder.
-- Show file time info.
+- Print all file paths and subfolder paths in a folder.
+- Print file time info.
 - Get drive space and drive type info.
 - Zip and unzip operations.
 - Add file to zip archive.
