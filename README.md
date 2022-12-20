@@ -15,6 +15,8 @@ Description: Includes APIs to:
 - Zip and unzip operations.
 - Add file to zip archive.
 - Remove file from zip archive.
+- Send file to default printer.
+- Send all files in a folder to default printer.
 
 Windows file systems NTFS/FAT32 stores file names in unicode.
 The implementation is based on std::wstring and WCHAR which are needed to access and create files with 
